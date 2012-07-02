@@ -24,9 +24,10 @@
     <%= f.date_select :end_date %>
   </div>
 
+  Developers:
   <ul>
   <% @all_programmers.each do |prog| %>
-     <li><%= check_box_tag "project[programmer_ids][]", prog.id %><%= prog.name %></li>
+     <li><%= check_box_tag "project[programmer_ids][]", prog.id, @project.programmers.include?(prog) %><%= prog.name %></li>
   <% end %>
   </ul>
 
