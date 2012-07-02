@@ -1,4 +1,4 @@
-ProgrammerTt::Application.routes.draw do
+ProgrammerTimetable::Application.routes.draw do
   resources :programmers
 
   resources :projects

@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-ProgrammerTt::Application.load_tasks
+ProgrammerTimetable::Application.load_tasks
