@@ -6,5 +6,14 @@ class SchedulesController < ApplicationController
     @developers = Developer.all
   end
 
+  def create
+    @schedule = Schedule.new(params[:schedule])
+    @schedule.project_id = params[:project_id]
 
+    if @schedule.save
+      redirect_to projects_path
+    else
+      render :new
+    end
+  end
 end
