@@ -8,5 +8,13 @@
   <div>
     <%= collection_select(:developer_projects, :developer_id, @developers, :id, :name) %>
   </div>
-
+  <div>
+    <%= f.label :start_date %>
+    <%= f.date_select("start_date") %>
+  </div>
+  <div>
+    <%= f.label :end_date %>
+    <%= f.date_select("end_date") %>
+  </div>
+  <%= f.submit %>
 <% end %>
