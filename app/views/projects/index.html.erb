@@ -1,0 +1,8 @@
+<h1>All Projects</h1>
+<ul>
+<% @projects.each do |project| %>
+  <li><%= project.name %> | <%= link_to "edit", edit_project_path(project) %> | <%= link_to "show", project_path(project) %> | <%= link_to "Add Developers", new_project_schedule_path(:project_id => project.id) %> </li>
+<% end %>
+</ul>
+
+<br><%= link_to "new", new_project_path %>

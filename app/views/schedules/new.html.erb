@@ -1,0 +1,12 @@
+<h1>Add Developer to a Project</h1>
+
+<%= form_for(@schedule, :url => project_schedules_path(@project.id)) do |f| %>
+  <div>
+    <%= @project.name %>
+    <%= f.hidden_field :project_id, :value => @project.id %>
+  </div>
+  <div>
+    <%= collection_select(:developer_projects, :developer_id, @developers, :id, :name) %>
+  </div>
+
+<% end %>

@@ -1,0 +1,18 @@
+<h1>Developer Timetable</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Developer</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @devs.each do |dev| %>
+    <tr>
+      <td><%= link_to dev.name, developer_path(dev) %></td>
+      <td>date</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
