@@ -23,12 +23,13 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @schedules = Schedule.find_all_by_project_id(params[:id])
+
   end
 
   def update
     @project = Project.find(params[:id])
     if @project.update_attributes(params[:project])
-      redirect_to  action: "show"
+       redirect_to action: "show"
     else
       redirect_to action: "edit"
     end 

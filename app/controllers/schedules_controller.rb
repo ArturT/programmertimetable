@@ -4,6 +4,7 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.new
     @schedule.project_id = @project.id
     @developers = Developer.all
+    @url = project_schedules_path(@project.id)
   end
 
   def create
@@ -18,9 +19,19 @@ class SchedulesController < ApplicationController
   end
 
    def edit
-      #@schedule = Schedule.find(params[:schedule])
-      #@project = Project.find(params[:project_id])
-      @schedule = params[:schedule]
+      @project = Project.find(params[:project_id])
+      @schedule = Schedule.find(params[:id])
+      @developers = Developer.all
+      @url = project_schedule_path()
+   end
 
+   def update
+      @schedule = Schedule.find(params[:id])
+
+      if @schedule.update_attributes(params[:schedule])
+         redirect_to project_path
+      else
+         render :edit
+      end
    end
 end

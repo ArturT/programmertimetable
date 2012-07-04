@@ -1,6 +1,6 @@
 class CreateDeveloperProjects < ActiveRecord::Migration
   def up
-    create_table :developer_projects, :id => false do |t|
+    create_table :developer_projects do |t|
       t.integer :developer_id
       t.integer :project_id
       t.date :start_date

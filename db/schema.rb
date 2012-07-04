@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20120703141401) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "schedules", :id => false, :force => true do |t|
+  create_table "schedules", :force => true do |t|
     t.integer  "developer_id"
     t.integer  "project_id"
     t.date     "start_date"
