@@ -1,9 +1,9 @@
 class SchedulesController < ApplicationController
+  before_filter :load_projects_and_developers, :only => [:new, :create, :edit, :update]
+
   def new
-    @project = Project.find(params[:project_id])
     @schedule = Schedule.new
     @schedule.project_id = @project.id
-    @developers = Developer.all
     @url = project_schedules_path(@project.id)
   end
 
@@ -19,9 +19,7 @@ class SchedulesController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params[:project_id])
     @schedule = Schedule.find(params[:id])
-    @developers = Developer.all
     @url = project_schedule_path()
   end
 
@@ -31,7 +29,14 @@ class SchedulesController < ApplicationController
     if @schedule.update_attributes(params[:schedule])
       redirect_to project_path
     else
+      @url = project_schedule_path()
       render :edit
     end
+  end
+
+  private
+  def load_projects_and_developers
+    @project = Project.find(params[:project_id])
+    @developers = Developer.all
   end
 end

@@ -7,4 +7,11 @@ class Schedule < ActiveRecord::Base
   validates :end_date, :presence => true
   validates :developer_id, :presence => true
   validates :project_id, :presence => true
+  validate :valid_dates?
+
+  def valid_dates?
+    if start_date > end_date
+      errors.add(:start_date, "is greater than end date")
+    end
+  end
 end

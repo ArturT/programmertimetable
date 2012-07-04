@@ -1,4 +1,12 @@
 <%= form_for(@schedule, :url => @url) do |f| %>
+   <% if @schedule.errors.any? %>
+      <div>
+         <% @schedule.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+         <% end %>
+      </div>
+   <% end %>
+
    <div>
       <%= @project.name %>
    </div>
