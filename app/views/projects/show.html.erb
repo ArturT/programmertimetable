@@ -1,5 +1,18 @@
 <h1>Show project</h1>
 <p><%= @project.name %></p>
 
+<h1>List Schedules</h1>
+<ul>
+   <% @schedules.each do |schedule| %>
+      <li>
+      <%= schedule.developer_name %>
+         <%= schedule.start_date %>
+         <%= schedule.end_date %>
+         <%# link_to "edit", edit_project_schedule_path(@project) %>
+
+      </li>
+   <% end %>
+</ul>
+
 <%= link_to "Edit", edit_project_path %>
 <%= link_to "Back", projects_path %>

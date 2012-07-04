@@ -1,0 +1,17 @@
+<%= form_for(@schedule, :url => project_schedules_path(@project.id)) do |f| %>
+   <div>
+      <%= @project.name %>
+   </div>
+   <div>
+      <%= f.collection_select(:developer_id, @developers, :id, :name) %>
+   </div>
+   <div>
+      <%= f.label :start_date %>
+      <%= f.date_select("start_date") %>
+   </div>
+   <div>
+      <%= f.label :end_date %>
+      <%= f.date_select("end_date") %>
+   </div>
+   <%= f.submit %>
+<% end %>

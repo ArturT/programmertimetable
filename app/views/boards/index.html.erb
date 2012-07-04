@@ -1,18 +1,36 @@
-<h1>Developer Timetable</h1>
+<h1>Developer Timetable for <%= @current.strftime("%B %Y") %></h1>
 
 <table>
-  <thead>
-    <tr>
+   <thead>
+   <tr>
       <th>Developer</th>
-      <th>Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @devs.each do |dev| %>
-    <tr>
-      <td><%= link_to dev.name, developer_path(dev) %></td>
-      <td>date</td>
-    </tr>
-    <% end %>
-  </tbody>
+      <% @dates.each do |date| %>
+         <th>
+            <%= date.strftime("%d") %>
+         </th>
+      <% end %>
+   </tr>
+   </thead>
+   <tbody>
+   <% @devs.each do |dev| %>
+      <tr>
+         <td><%= link_to dev.name, developer_path(dev) %></td>
+         <% @dates.each do |date| %>
+            <td>
+               <% dev.schedule.each do |schedule| %>
+                  <% if schedule.start_date <= date and schedule.end_date >= date %>
+                     <%= schedule.project_name %><br>
+                  <% end %>
+               <% end %>
+            </td>
+         <% end %>
+      </tr>
+   <% end %>
+   </tbody>
 </table>
+
+<div>
+   <br />
+   <%= link_to "Developers", developers_path %> |
+   <%= link_to "Projects", projects_path %>
+</div>

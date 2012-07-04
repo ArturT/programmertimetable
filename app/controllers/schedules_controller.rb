@@ -16,4 +16,11 @@ class SchedulesController < ApplicationController
       render :new
     end
   end
+
+   def edit
+      #@schedule = Schedule.find(params[:schedule])
+      #@project = Project.find(params[:project_id])
+      @schedule = params[:schedule]
+
+   end
 end

@@ -10,7 +10,6 @@ Programmertimetable::Application.routes.draw do
 
   root :to => 'boards#index'
 
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
