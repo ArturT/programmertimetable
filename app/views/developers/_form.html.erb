@@ -1,29 +1,29 @@
 <%= form_for(@developer) do |f| %>
- <% if @developer.errors.any? %>
- <div>
-  <ul>
-    <% @developer.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
- </div>
- <% end %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+   <% if @developer.errors.any? %>
+      <div>
+         <ul>
+            <% @developer.errors.full_messages.each do |msg| %>
+               <li><%= msg %></li>
+            <% end %>
+         </ul>
+      </div>
+   <% end %>
+   <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+   </div>
 
-  <div>
-    <%= f.label :surname %>
-    <%= f.text_field :surname %>
-  </div>
+   <div>
+      <%= f.label :surname %>
+      <%= f.text_field :surname %>
+   </div>
 
-  <div>
-    <%= f.label :position %>
-    <%= f.text_field :position %>
-  </div>
+   <div>
+      <%= f.label :position %>
+      <%= f.text_field :position %>
+   </div>
 
-  <div>
-    <%= f.submit %>
-  </div>
+   <div>
+      <%= f.submit %>
+   </div>
 <% end %>

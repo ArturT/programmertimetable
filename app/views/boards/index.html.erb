@@ -1,4 +1,8 @@
-<h1>Developer Timetable for <%= @current.strftime("%B %Y") %></h1>
+<h1>Developer Timetable for <%= @dates.first.strftime("%B %Y") %></h1>
+<%= link_to "Previous Month", root_path(:date => @dates.first.prev_month) %> |
+<%= link_to "Current Month", root_path(:date => Date.today) %> |
+<%= link_to "Next Month", root_path(:date => @dates.first.next_month) %>
+
 
 <table>
    <thead>
@@ -17,9 +21,9 @@
          <td><%= link_to dev.name, developer_path(dev) %></td>
          <% @dates.each do |date| %>
             <td>
-               <% dev.schedule.each do |schedule| %>
+               <% dev.schedules.each do |schedule| %>
                   <% if schedule.start_date <= date and schedule.end_date >= date %>
-                     <%= schedule.project_name %><br>
+                     <%= schedule.project.name %><br>
                   <% end %>
                <% end %>
             </td>
@@ -30,7 +34,7 @@
 </table>
 
 <div>
-   <br />
+   <br/>
    <%= link_to "Developers", developers_path %> |
    <%= link_to "Projects", projects_path %>
 </div>

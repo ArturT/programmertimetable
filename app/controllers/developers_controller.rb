@@ -27,9 +27,9 @@ class DevelopersController < ApplicationController
   def update
     @developer = Developer.find(params[:id])
     if @developer.update_attributes(params[:developer])
-      redirect_to  action: "show"
+      redirect_to action: "show"
     else
       redirect_to action: "edit"
-    end 
+    end
   end
 end

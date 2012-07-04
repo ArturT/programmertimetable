@@ -14,26 +14,26 @@
 ActiveRecord::Schema.define(:version => 20120703141401) do
 
   create_table "developers", :force => true do |t|
-    t.string   "name"
-    t.string   "surname"
-    t.string   "position"
+    t.string "name"
+    t.string "surname"
+    t.string "position"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "projects", :force => true do |t|
-    t.string   "name"
+    t.string "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "schedules", :force => true do |t|
-    t.integer  "developer_id"
-    t.integer  "project_id"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer "developer_id"
+    t.integer "project_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

@@ -1,8 +1,9 @@
 <h1>All Developers</h1>
 <ul>
-<% @devs.each do |dev| %>
-  <li><%= dev.name %> | <%= link_to "edit", edit_developer_path(dev) %> <%= link_to "show", developer_path(dev) %></li>
-<% end %>
+   <% @devs.each do |dev| %>
+      <li><%= dev.name %> | <%= link_to "edit", edit_developer_path(dev) %>
+         | <%= link_to "show", developer_path(dev) %></li>
+   <% end %>
 </ul>
 
 <%= link_to "Add new developer", new_developer_path %> |

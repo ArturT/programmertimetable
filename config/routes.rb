@@ -1,9 +1,6 @@
 Programmertimetable::Application.routes.draw do
 
   resources :developers
-
-  match 'boards/index' => 'boards#index '
-
   resources :projects do
     resources :schedules
   end

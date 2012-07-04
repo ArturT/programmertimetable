@@ -5,7 +5,7 @@
 <ul>
    <% @schedules.each do |schedule| %>
       <li>
-      <%= schedule.developer_name %>
+         <%= schedule.developer.name %>
          <%= schedule.start_date %>
          <%= schedule.end_date %>
          <%= link_to "edit", edit_project_schedule_path(@project) %>
