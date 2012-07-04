@@ -14,6 +14,7 @@ class SchedulesController < ApplicationController
     if @schedule.save
       redirect_to projects_path
     else
+      @url = new_project_schedule_path()
       render :new
     end
   end
